@@ -4,7 +4,7 @@ import {IndexController} from "../controllers/IndexController";
 
 import {fileUploadingConfig, fileUploadingRules} from "../utils/uploader";
 
-const multer  = require('multer'),
+const multer = require('multer'),
     upload = multer(fileUploadingConfig).fields(fileUploadingRules)
 
 
@@ -12,12 +12,8 @@ const multer  = require('multer'),
 get("/", new AuthController().index)
 
 
-
-
 post('/login', new AuthController().login)
 post('/register', new AuthController().register)
-
-
 
 
 module.exports = router;
