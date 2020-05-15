@@ -1,6 +1,9 @@
 import {get, put, post, router, del} from "../../config/router";
 import {BlogController} from "../../controllers/BlogController";
 
+
+
+
 get('/all', new BlogController().index)
 get('/:id', new BlogController().getBy)
 

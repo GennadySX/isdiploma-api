@@ -1,6 +1,5 @@
 import {Cors} from "./config/Cors";
-import {authMiddleware} from "./config/authMiddleware";
-import {fileUploadingConfig, fileUploadingRules} from "./utils/uploader";
+import {HttpRouter} from "./routes/Http";
 
 var express = require('express'),
     path = require('path'),
@@ -9,10 +8,6 @@ var express = require('express'),
     logger = require('morgan'),
 
     Mongo = require('./config/database'),
-
-    indexRouter = require('./routes/index'),
-    blogRouter = require('./routes/blog'),
-    userRouter = require('./routes/users'),
 
     app = express();
 
@@ -25,13 +20,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
 
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => Cors(req, res, next));
 
+HttpRouter(app);
 
-app.use('/blog', authMiddleware, blogRouter);
-app.use('/user', authMiddleware, userRouter);
-app.use('/', indexRouter);
 
 module.exports = app;

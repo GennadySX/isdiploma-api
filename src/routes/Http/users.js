@@ -1,5 +1,5 @@
-import {get, put, post, router, del, file} from "../config/router";
-import {UserController} from "../controllers/UserController";
+import {get, put, post, router, del, file} from "../../config/router";
+import {UserController} from "../../controllers/UserController";
 
 /* GET home page. */
 get("/profile", new UserController().user)
