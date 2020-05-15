@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
+d=`date +"%d-%m"`
+h=`date +"%H"`
 
+
+read -p " commit -stamp: " stamp
+
+read -p " enter commit message: " mess
 
 
 git add .
 
-read -p "Commit message: " mess
-
-git commit -m "$mess"
+git commit -m "isdiploma-api --$d -$stamp  :$mess"
 
 
 git push -u origin master
