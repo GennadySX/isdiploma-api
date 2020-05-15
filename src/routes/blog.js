@@ -9,7 +9,5 @@ put('/:id', new BlogController().update)
 del('/:id', new BlogController().delete)
 
 
-
-
 module.exports = router;
 
