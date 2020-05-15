@@ -1,8 +1,9 @@
 import {Cors} from "./config/Cors";
 import {HttpRouter} from "./routes/Http";
-
+import {SocketsRouter} from "./routes/Sockets";
 var express = require('express'),
     path = require('path'),
+    http = require('http'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     logger = require('morgan'),
@@ -26,5 +27,11 @@ app.use((req, res, next) => Cors(req, res, next));
 
 HttpRouter(app);
 
+const socket = (server) => {
+    new SocketsRouter(server).run()
+}
 
-module.exports = app;
+export {
+    app,
+    socket
+}

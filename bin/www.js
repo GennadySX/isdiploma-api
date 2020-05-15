@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 
+import {SocketsRouter} from "../src/routes/Sockets";
+
 /**
  * Module dependencies.
  */
 
-var app = require('../src/app');
-var debug = require('debug')('maks:server');
+import {app, socket} from "../src/app";
+
+var debug = require('debug')('isdiploma:server');
 var http = require('http');
 
 /**
@@ -77,9 +80,7 @@ function onError(error) {
     }
 }
 
-/**
- * Event listener for HTTP server "listening" event.
- */
+socket(server)
 
 function onListening() {
     var addr = server.address();
