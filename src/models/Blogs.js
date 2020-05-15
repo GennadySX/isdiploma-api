@@ -15,7 +15,7 @@ const blogs_table = new Schema({
 let table = mongoose.model('blogs', blogs_table, 'blogs')
 
 
-class Blogs extends Model{
+class Blogs extends Model {
     constructor(modelTable = table) {
         super(modelTable);
     }

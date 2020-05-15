@@ -31,7 +31,7 @@ user_table.plugin(uniqueValidator)
 let table = mongoose.model('users', user_table, 'users')
 
 
-class Users extends Model{
+class Users extends Model {
     constructor(modelTable = table) {
         super(modelTable);
     }

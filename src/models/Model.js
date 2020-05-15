@@ -1,4 +1,4 @@
-let table ;
+let table;
 
 export default class Model {
     constructor(modelTable = Object) {
@@ -13,7 +13,7 @@ export default class Model {
         table.find({}, callback)
     }
 
-    find(where,callback) {
+    find(where, callback) {
         table.find(where, callback)
     }
 

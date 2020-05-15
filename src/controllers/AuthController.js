@@ -39,7 +39,7 @@ class AuthController {
 
 
     register(req, res, next) {
-         // return res.json({status: false, send:req.body});
+        // return res.json({status: false, send:req.body});
         if (req.body && (req.body.email) && req.body.password) {
             const password = Bcrypt.hashSync(req.body.password, 10)
             req.body.password = password
@@ -60,8 +60,6 @@ class AuthController {
             });
         })
     }
-
-
 
 
 }

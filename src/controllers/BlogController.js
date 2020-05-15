@@ -3,13 +3,16 @@ import {Blogs} from "../models/Blogs";
 class BlogController {
 
     index(req, res) {
-       new Blogs().all((err, list) => res.json({status: true, blogs:list}))
+        new Blogs().all((err, list) => res.json({status: true, blogs: list}))
     }
 
     getBy(req, res) {
         (req.params.id) ?
-        new Blogs().findOne({_id: req.params.id},
-            (err, blog) => (blog) ? res.json({status: true, blog: blog}) : res.json({status: false, mess: "blog not created"}))
+            new Blogs().findOne({_id: req.params.id},
+                (err, blog) => (blog) ? res.json({status: true, blog: blog}) : res.json({
+                    status: false,
+                    mess: "blog not created"
+                }))
             : res.json({status: false, mess: "please, set blog_id for find"})
     }
 
@@ -24,19 +27,21 @@ class BlogController {
 
 
     update(req, res) {
-        new Blogs().update({_id: req.params.id }, {text: req.body.blog_text},
-            (err, blog ) =>  (blog) ?
-                new Blogs().findOne({_id: req.params.id}, (err, blog) =>  res.json({status: true, blog: blog}))
-             : res.json({status: false, mess: "blog not updated"})
-            )
+        new Blogs().update({_id: req.params.id}, {text: req.body.blog_text},
+            (err, blog) => (blog) ?
+                new Blogs().findOne({_id: req.params.id}, (err, blog) => res.json({status: true, blog: blog}))
+                : res.json({status: false, mess: "blog not updated"})
+        )
     }
 
 
     delete(req, res) {
-        new Blogs().delete({_id: req.params.id},  (err, blog) => (blog) ? res.json({status: true, mess: "blog destroyed"})
+        new Blogs().delete({_id: req.params.id}, (err, blog) => (blog) ? res.json({
+                status: true,
+                mess: "blog destroyed"
+            })
             : res.json({status: false, mess: "blog not updated"}))
     }
-
 
 
 }
