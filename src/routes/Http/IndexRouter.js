@@ -1,8 +1,16 @@
+/**
+ * Created by GennadySX on @2020
+ */
+
 import {get, put, post, router, del} from "../../config/router";
-import {IndexController} from "../../controllers/IndexController";
+import {AuthController} from "../../controllers/AuthController";
+
+//Login
+post('/login', new AuthController().login)
 
 
-get('', new IndexController().index)
+//Register
+post('/register', new AuthController().register)
 
 
 export default router;

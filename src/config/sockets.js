@@ -1,3 +1,7 @@
+/**
+ * Created by GennadySX on @2020
+ */
+
 import siofu from "socketio-file-upload"
 import md5 from 'js-md5'
 import fs from 'fs'

@@ -1,3 +1,7 @@
+/**
+ * Created by GennadySX on @2020
+ */
+
 import Mongo from 'mongoose'
 
 require('dotenv').config()

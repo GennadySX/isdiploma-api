@@ -1,3 +1,7 @@
+/**
+ * Created by GennadySX on @2020
+ */
+
 let table;
 
 export default class Model {

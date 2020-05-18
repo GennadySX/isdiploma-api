@@ -1,3 +1,7 @@
+/**
+ * Created by GennadySX on @2020
+ */
+
 import {SocketConfig} from "../config/sockets";
 import * as ioSocket from 'socket.io'
 

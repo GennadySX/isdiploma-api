@@ -1,7 +1,14 @@
-import {Cors} from "./config/Cors";
-import HttpRouter from "./routes/Http";
+/**
+ * Created by GennadySX on @2020
+ */
 
+import {Cors} from "./config/Cors";
 import {SocketsRouter} from "./routes/Sockets";
+
+import IndexRouter from "./routes/Http/IndexRouter";
+import AuthRouter from "./routes/Http/IndexRouter";
+import APIRouter from "./routes/Http/ApiRouter";
+
 var express = require('express'),
     path = require('path'),
     http = require('http'),
@@ -26,7 +33,9 @@ app.use(bodyParser.raw());
 
 app.use((req, res, next) => Cors(req, res, next));
 
-app.use('/', HttpRouter)
+app.use('/', IndexRouter)
+app.use('/auth', AuthRouter)
+app.use('/api', APIRouter)
 
 const socket = (server) => {
     new SocketsRouter(server).run()

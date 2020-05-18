@@ -1,3 +1,7 @@
+/**
+ * Created by GennadySX on @2020
+ */
+
 import {Tokens} from "../models/Token";
 
 const authMiddleware = (req, res, next) =>

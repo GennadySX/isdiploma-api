@@ -1,3 +1,7 @@
+/**
+ * Created by GennadySX on @2020
+ */
+
 const multer = require('multer'),
     upload = multer({dest: 'uploads/'}),
     md5 = require('js-md5')

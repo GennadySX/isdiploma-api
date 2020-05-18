@@ -1,3 +1,7 @@
+/**
+ * Created by GennadySX on @2020
+ */
+
 import {Users as User} from "../models/Users";
 import Bcrypt from 'bcryptjs'
 import randtoken from 'rand-token'

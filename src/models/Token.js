@@ -1,3 +1,7 @@
+/**
+ * Created by GennadySX on @2020
+ */
+
 import mongoose from 'mongoose'
 import Model from "./Model";
 

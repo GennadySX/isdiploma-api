@@ -1,5 +1,6 @@
-
-
+/**
+ * Created by GennadySX on @2020
+ */
 
 export class ChatSocketRouter {
     constructor(socket, mSocket) {

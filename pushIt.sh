@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#@Created by GennadySX
 
 d=`date +"%d-%m"`
 h=`date +"%H"`

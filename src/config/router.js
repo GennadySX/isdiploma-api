@@ -1,3 +1,7 @@
+/**
+ * Created by GennadySX on @2020
+ */
+
 var express = require('express');
 var router = express.Router();
 import {fileUploadingConfig, fileUploadingRules} from "../utils/uploader";
