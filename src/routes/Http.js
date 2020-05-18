@@ -1,15 +1,14 @@
-import {IndexRouter} from './Http/IndexRouter'
+import IndexRouter from './Http/IndexRouter'
 import {APIRouter} from "./Http/ApiRouter";
-import {AuthRouter} from "./Http/AuthRouter";
+import {router} from "./Http/ApiRouter";
 
-const HttpRouter = (app) => {
 
-    app.use('/', IndexRouter)
 
-    app.use('/auth', AuthRouter)
+router.use('/', IndexRouter);
 
-    app.use('/api/auth', APIRouter)
 
-};
 
-export {HttpRouter}
+router.use('/api', APIRouter);
+
+
+export default router

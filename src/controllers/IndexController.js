@@ -6,7 +6,7 @@ import {Tokens} from "../models/Token";
 class IndexController {
 
     index(req, res, next) {
-        res.json({body: req.body, mess: "this is for only testing request types!."})
+        return res.json({body: req.body, mess: "this is for only testing request types!."})
     }
 
 

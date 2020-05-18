@@ -1,5 +1,6 @@
 import {Cors} from "./config/Cors";
-import {HttpRouter} from "./routes/Http";
+import HttpRouter from "./routes/Http";
+
 import {SocketsRouter} from "./routes/Sockets";
 var express = require('express'),
     path = require('path'),
@@ -25,7 +26,7 @@ app.use(bodyParser.raw());
 
 app.use((req, res, next) => Cors(req, res, next));
 
-HttpRouter(app);
+app.use('/', HttpRouter)
 
 const socket = (server) => {
     new SocketsRouter(server).run()
