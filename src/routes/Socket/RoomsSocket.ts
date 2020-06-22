@@ -1,5 +1,4 @@
 import RoomController from "@controllers/RoomController";
-import GroupsController from "@controllers/GroupsController";
 
 export default class RoomsSocket {
     socket: any

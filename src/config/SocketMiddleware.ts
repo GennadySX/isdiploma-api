@@ -6,14 +6,14 @@ const SocketMiddleware = (socket: any, next: NextFunction) => {
         new TokensController().getOne({token: socket.handshake.query.token}
             , (res: any) => {
                 if(res.error) {
-                    next(new Error('User not found!'))
+                    next(new Error('Токен не правильный, авторизуйтесь еще раз!'))
                 } else {
                     socket.user_id = res && res.user_id ? res.user_id : null
                     next()
                 }
             }
         )
-        : next(new Error('Authentication error'));
+        : next(new Error('Не автроизвонный пользователь'));
 }
 
 

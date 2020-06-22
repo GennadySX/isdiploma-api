@@ -14,13 +14,13 @@ export default class GroupsController extends Controller {
         super(new Groups());
     }
 
-    //commonInit
+    // commonInit
     public commonInit(room: string, socket: any) {
 
         super.getOne({name: room}, (commonChat: object | any) => {
-            //console.log('group find subscribe ', commonChat);
+            // console.log('group find subscribe ', commonChat);
             if (commonChat && commonChat.data ) {
-                console.log('subscribed', room)
+                // console.log('subscribed', room)
                 socket.join(room)
                 socket.emit(SocketEmits.commonChatData, commonChat.data)
             } else GroupSeeder(socket);
@@ -29,7 +29,7 @@ export default class GroupsController extends Controller {
 
     public groupInit(room: string, socket: any) {
         super.getOne({name: room}, (roomChat: object | any) => {
-            console.log('room is ', room)
+            // console.log('room is ', room)
             if (roomChat && roomChat.data) {
                 socket.join(room)
                 socket.emit(SocketEmits.commonChatData, roomChat.data)
@@ -40,7 +40,7 @@ export default class GroupsController extends Controller {
                         members: {user: socket.user_id},
                         chat: {
                             from: socket.user_id,
-                            text: "Hey"
+                            text: 'Hey'
                         },
                         owner: socket.user_id
                     }, (created: any) =>

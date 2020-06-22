@@ -1,6 +1,5 @@
 import {createSchema, Type} from "ts-mongoose";
 import {RoomConst} from "@const/Model/RoomConst";
-import {GroupConst} from "@const/Model/GroupConst";
 
 const Executors = createSchema(
     {

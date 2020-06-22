@@ -1,9 +1,9 @@
 /**
  * Created by GennadySX on @2020
  */
-import Controller from "@controllers/Controller";
-import User from "@models/User";
-import Tokens from "@models/Tokens";
+import Controller from '@controllers/Controller';
+import User from '@models/User';
+import Tokens from '@models/Tokens';
 
 
 export default class UserController extends Controller {
@@ -17,7 +17,7 @@ export default class UserController extends Controller {
     public async getIt(data: any, socket: any): Promise<void> {
         //super.getOne({_id: 'asdasdasda5132132132a1sd32'})
         console.log('controller data', socket.user_id)
-        socket.emit("token_is", socket.user_id)
+        socket.emit('token_is', socket.user_id)
     }
 
 
@@ -59,8 +59,10 @@ export default class UserController extends Controller {
     }
 
 
+
+
     public async getUsers(socket: any) {
-        this.getAll((data: object | any) => socket.emit("friendList", data.data ? data : null))
+        this.getAll((data: object | any) => socket.emit('friendList', data.data ? data : null))
     }
 
 

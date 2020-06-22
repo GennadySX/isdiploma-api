@@ -51,6 +51,7 @@ const UserSchema = createSchema(
         aboutMe: Type.string({ required: false }),
         friends: [Type.schema({ required: false }).of(Friends)],
         groups: [Type.schema({ required: false }).of(MemberGroups)],
+        memberRooms: [Type.objectId({required: true, unique: true})],
         ignore: [Type.schema({ required: false }).of(Ignore)],
         invite: [Type.schema({ required: false }).of(Invite)],
     },
