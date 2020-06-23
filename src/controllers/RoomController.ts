@@ -3,6 +3,7 @@
  */
 import Controller from "@controllers/Controller";
 import Room from "@models/Room";
+import User from '@models/User';
 
 export default class RoomController extends Controller {
     constructor() {
@@ -10,13 +11,34 @@ export default class RoomController extends Controller {
     }
 
 
+    getRoomList(socket: any) {
+
+        new User().all((err:any, users: any) => {
+
+            super.getAll((roomList: any) => {
+                console.log('room list', roomList)
+                socket.emit('roomList', roomList, users);
+            })
+
+        });
+    }
+
+
+    public getRoomData(room:any, socket: any) {
+        super.getOne({_id: room}, (roomData: any) => {
+            console.log('room data', roomData)
+            socket.emit('get_room',  roomData);
+            socket.join(room._id)
+        })
+    }
+
     public newMessage(room: object | any, message: object | any, socket: any) {
         // console.log('message is', message)
         // console.log('room is', room)
         super.update(room, {"$push": {"messageList": message}}, (roomData: any) => {
             roomData.data ?
                 super.getLast(room, 'messageList', (lastMessage: any) =>
-                    socket.broadcast.to(room._id).emit("room_receive", lastMessage && lastMessage.data ? lastMessage.data : null))
+                    socket.broadcast.emit("room_receive", lastMessage && lastMessage.data ? lastMessage.data : null))
                 : console.log('Error  updated message list ', roomData.error)
         })
     }
@@ -53,6 +75,10 @@ export default class RoomController extends Controller {
             socket.emit('room_created', res)
         })
     }
+
+
+
+
 
 
 
