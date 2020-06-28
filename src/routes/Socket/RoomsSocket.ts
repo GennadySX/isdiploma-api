@@ -20,6 +20,7 @@ export default class RoomsSocket {
 
 
         this.socket.on('get_room_emit', (room: any) => new RoomController().getRoomData(room, this.socket))
+        this.socket.on('room_join', (room: any) => new RoomController().joinIt(room, this.socket))
 
         this.socket.on('get_room_list', () => new RoomController().getRoomList(this.socket))
 

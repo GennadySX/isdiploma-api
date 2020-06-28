@@ -1,11 +1,11 @@
 import Model from "@models/Model";
 import {typedModel } from 'ts-mongoose';
 import {TaskSchema} from "@migration/TaskTable";
-import {GroupConst} from "@const/Model/GroupConst";
+import {TaskConst} from '@const/Model/TaskConst';
 
 
 export default class Tasks extends Model {
-    constructor(props = typedModel(GroupConst.table, TaskSchema)) {
+    constructor(props = typedModel(TaskConst.table, TaskSchema)) {
         super(props);
     }
 

@@ -5,7 +5,7 @@ import {GroupConst} from "@const/Model/GroupConst";
 
 
 export default class Projects extends Model {
-    constructor(props = typedModel(GroupConst.table, ProjectSchema)) {
+    constructor(props = typedModel("project", ProjectSchema)) {
         super(props);
     }
 

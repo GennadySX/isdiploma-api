@@ -32,13 +32,18 @@ export default class RoomController extends Controller {
         })
     }
 
+
+    public joinIt(room:any, socket:any) {
+        socket.join(room._id)
+    }
+
     public newMessage(room: object | any, message: object | any, socket: any) {
         // console.log('message is', message)
         // console.log('room is', room)
         super.update(room, {"$push": {"messageList": message}}, (roomData: any) => {
             roomData.data ?
                 super.getLast(room, 'messageList', (lastMessage: any) =>
-                    socket.broadcast.emit("room_receive", lastMessage && lastMessage.data ? lastMessage.data : null))
+                    socket.broadcast.emit("room_receive", lastMessage && lastMessage.data ? lastMessage.data : null, room))
                 : console.log('Error  updated message list ', roomData.error)
         })
     }

@@ -13,8 +13,12 @@ const Chat = createSchema(
 );
 
 
+
+
+
 const RoomSchema = createSchema(
     {
+        type: Type.string({required: true, enum: RoomConst.type as any, default: RoomConst.type[0]}),
         messageList: [Type.schema({required: true}).of(Chat)],
         members: [Type.objectId({required: true})],
     },

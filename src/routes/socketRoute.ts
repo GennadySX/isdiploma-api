@@ -4,6 +4,8 @@ import {SocketMiddleware} from "@config/SocketMiddleware";
 import UploaderSocket from "./Socket/UploaderSocket";
 import UsersSocket from "./Socket/UsersSocket";
 import GroupsSocket from "./Socket/GroupsSocket";
+import ProjectSocket from './Socket/ProjectSocket';
+import TaskSocket from './Socket/TaskSocket';
 
 export default class SocketRoute {
     ioSocket: any;
@@ -16,7 +18,10 @@ export default class SocketRoute {
         this.ioSocket.use(SocketMiddleware).on('connection', (socket: any) => {
             //Так и можешь вызвать но используй константы emit-ов
             new UsersSocket(this.ioSocket, socket).run()
-            
+
+            new ProjectSocket(this.ioSocket, socket).run()
+            new TaskSocket(this.ioSocket, socket).run()
+
             new RoomsSocket(this.ioSocket, socket).run()
             new GroupsSocket(this.ioSocket, socket).run()
 
