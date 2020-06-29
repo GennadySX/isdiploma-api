@@ -4,7 +4,4 @@ export const TaskConst = {
     type: ['PLANNED', 'DOING', 'TESTING', 'BUGS', 'COMPLETED'],
 
 
-
-
-
 }

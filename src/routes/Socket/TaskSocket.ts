@@ -15,5 +15,9 @@ export default class ProjectSocket {
     public run() {
         this.socket.on('taskCreate', (task: any) => new TaskController().create( task, this.socket));
 
+        this.socket.on('emit_taskList', (task: any) => new TaskController().list(this.socket));
+        this.socket.on('emit_taskMoved', (task: any, type:any) => new TaskController().moved(task, type, this.socket));
+        this.socket.on('emit_taskDelete', (task: any) => new TaskController().del(task, this.socket));
+
     }
 }
